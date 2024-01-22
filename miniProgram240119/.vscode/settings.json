@@ -8,7 +8,7 @@
   },
   "[javascript]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -30,11 +30,5 @@
     "wrap_attributes_count": 4,
     "wrap_attributes_indent_size": 2
   },
-  "editor.tabSize": 2,
-  "[wxml]": {
-    "editor.defaultFormatter": "wechat.miniprogram.wxml-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  }
+  "editor.tabSize": 2
 }
