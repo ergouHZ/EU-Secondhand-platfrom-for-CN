@@ -5,19 +5,24 @@ export default [
     url: 'pages/home/home',
   },
   {
-    icon: 'sort',
+    icon: 'app',
     text: '分类',
     url: 'pages/goods/category/index',
   },
 
   {
-    icon: 'person',
+    icon: 'face-retouching',
     text: '个人中心',
     url: 'pages/usercenter/index',
   },
+  {
+    icon: 'houses-1',
+    text: '租房',
+    url: 'pages/cart/index',
+  },
 
   {
-    icon: 'chat-add',
+    icon: 'chat',
     text: '消息',
     url: 'pages/cart/index',
   },
