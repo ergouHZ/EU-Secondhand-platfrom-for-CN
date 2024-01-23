@@ -1,9 +1,17 @@
-<t-tab-bar value="{{active}}" bindchange="onChange" split="{{false}}">
+<t-tab-bar class="custom-tab-bar" value="{{active}}"
+bindchange="onChange" theme="tag" split="{{false}}">
 
-  <t-tab-bar-item wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+  <t-tab-bar-item
+  class="custom-tab-item"
+  wx:for="{{list}}"
+  wx:for-item="item"
+  
+  wx:for-index="index"
+  value="{{item.value}}"
+  wx:key="index">
 
-    <view class="custom-tab-bar-wrapper">
-      <t-icon name="{{item.icon}}" size="52rpx" />
+    <view class="custom-tab-bar-wrapper {{index == 2? 'middle-item' : ''}}">
+      <t-icon class="tab-icon"  name="{{item.icon}}" size="52rpx" />
       <view class="text">{{ item.text }}</view>
     </view>
 
