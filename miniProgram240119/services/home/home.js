@@ -1,4 +1,4 @@
-import { config, cdnBase } from '../../config/index';
+import { cdnBase, config } from '../../config/index';
 
 /** 获取首页数据 */
 function mockFetchHome() {
@@ -17,7 +17,7 @@ function mockFetchHome() {
           key: 1,
         },
         {
-          text: '二胎大作战',
+          text: '厨房用品',
           key: 2,
         },
         {
@@ -33,7 +33,7 @@ function mockFetchHome() {
           key: 5,
         },
         {
-          text: '手机也疯狂',
+          text: '手机产品',
           key: 6,
         },
       ],
