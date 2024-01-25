@@ -36,7 +36,6 @@ Page({
   },
 
 
-
   onLoad() {
     this.init();
   },
@@ -68,6 +67,7 @@ Page({
         pageLoading: false,
       });
       this.loadGoodsList(true);
+
     });
   },
 

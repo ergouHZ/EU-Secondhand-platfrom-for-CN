@@ -107,9 +107,9 @@ page {
 }
 
 
-.fabButton {
-  position: fixed; /* 使用 fixed 保证按钮固定在屏幕右下角，即使页面滚动 */
-  right: 20rpx; /* 距离屏幕右边距离 */
-  bottom: 140rpx; /* 距离屏幕底部距离 */
-  z-index: 999; /* 确保悬浮按钮显示在其他内容之上 */
+/*.fabButton {
+  position: fixed;
+  right: 20rpx; 
+  bottom: 140rpx;
+  z-index: 999; 
 }

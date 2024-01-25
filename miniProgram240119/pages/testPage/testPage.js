@@ -1,10 +1,10 @@
 Page({
-  data: {
-    fabButton: {
-      icon: 'share',
-      openType: 'share',
-    },
-  },
+  // data: {
+  //   fabButton: {
+  //     icon: 'share',
+  //     openType: 'share',
+  //   },
+  // },
 
   onShow() {
     this.getTabBar().init();
@@ -13,6 +13,6 @@ Page({
   /*  悬浮钮 */
   handleClick(e) {
     console.log(e);
-    /* wx.navigateTo({ url: '/pages/goods/search/index' }); */
+    wx.navigateTo({ url: '/pages/goods/search/index' });
   },
 });
