@@ -68,7 +68,7 @@
 		  show="{{show}}"
 		  bind:showFilterPopupClose="showFilterPopupClose"
 		  bind:reset="reset"
-		  bind:confirm="<!--  -->confirm"
+		  bind:confirm="confirm"
 		>
 			<view class="price-container" slot="filterSlot">
 				<view class="price-between">价格区间</view>
@@ -96,7 +96,7 @@
 	</filter>
 
 
-  <goods-list style="position: relative; left: 0rpx; top: 78rpx"
+  <goods-list style="position: relative; left: 0rpx; top: -16rpx"
     wr-class="goods-list-container"
     goodsList="{{goodsList}}"
     bind:click="goodListClickHandle"
