@@ -55,6 +55,12 @@
     "miniprogram": {
       "list": [
         {
+          "name": "测试新建",
+          "pathName": "pages/testPage/testPage",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "首页入口",
           "pathName": "pages/home/home",
           "query": "",
