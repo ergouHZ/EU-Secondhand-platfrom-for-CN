@@ -11,9 +11,9 @@ export default [
   },
 
   {
-    icon: 'face-retouching',
-    text: '个人中心',
-    url: 'pages/usercenter/index',
+    icon: 'add',
+    text: '发布',
+    url: 'pages/testPage/testPage',
   },
   {
     icon: 'houses-1',
@@ -22,9 +22,9 @@ export default [
   },
 
   {
-    icon: 'chat',
-    text: '消息',
-    url: 'pages/testPage/testPage',
+    icon: 'user',
+    text: '个人',
+    url: 'pages/usercenter/index',
   },
 
 ];

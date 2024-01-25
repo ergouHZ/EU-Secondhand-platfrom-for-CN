@@ -1,5 +1,5 @@
-import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
 import Toast from 'tdesign-miniprogram/toast/index';
+import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
 
 const initFilters = {
   overall: 1,

@@ -10,12 +10,13 @@
       leftIcon=""
       disabled
     >
+
       <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
     </t-search>
   </view>
 
 <!-- 这个图片横扫暂时不用 -->
-  <view class="swiper-wrap">
+  <view class="swiper-wrap" style="width: 702rpx; height: 384rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 0rpx">
     <t-swiper
       wx:if="{{imgSrcs.length > 0}}"
       current="{{current}}"
@@ -31,6 +32,7 @@
 
 </view>
 <view class="home-page-container">
+
   <view class="home-page-tabs">
     <t-tabs
       t-class="t-tabs"
@@ -40,6 +42,7 @@
       space-evenly="{{false}}"
       bind:change="tabChangeHandle"
     >
+    
       <t-tab-panel
         wx:for="{{tabList}}"
         wx:for-index="index"
@@ -50,7 +53,50 @@
     </t-tabs>
   </view>
 
-  <goods-list
+
+<!--   筛选器 -->
+	<filter
+	  wr-class="filter-container"
+	  bind:change="handleFilterChange"
+	  layout="{{layout}}"
+	  sorts="{{sorts}}"
+	  overall="{{overall}}"
+	  bind:showFilterPopup="showFilterPopup"
+	>
+		<filter-popup
+		  slot="filterPopup"
+		  show="{{show}}"
+		  bind:showFilterPopupClose="showFilterPopupClose"
+		  bind:reset="reset"
+		  bind:confirm="<!--  -->confirm"
+		>
+			<view class="price-container" slot="filterSlot">
+				<view class="price-between">价格区间</view>
+				<view class="price-ipts-wrap">
+					<t-input
+					  align="center"
+					  type="number"
+					  t-class="price-ipt"
+					  placeholder="最低价"
+					  value="{{minVal}}"
+					  bindchange="onMinValAction"
+					/>
+					<view class="price-divided">-</view>
+					<t-input
+					  align="center"
+					  type="number"
+					  t-class="price-ipt"
+					  placeholder="最高价"
+					  value="{{maxVal}}"
+					  bindchange="onMaxValAction"
+					/>
+				</view>
+			</view>
+		</filter-popup>
+	</filter>
+
+
+  <goods-list style="position: relative; left: 0rpx; top: 78rpx"
     wr-class="goods-list-container"
     goodsList="{{goodsList}}"
     bind:click="goodListClickHandle"
@@ -58,9 +104,11 @@
   />
   <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
   <t-toast id="t-toast" />
-
   
-  <t-fab class="fabButton" icon="add" button-props="{{fabButton}}" bind:click="handleClick" text="发布二手" />
+
+
 </view>
+
+
 
 

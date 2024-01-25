@@ -21,6 +21,8 @@ Page({
     },
   },
 
+  pageNum: 1,
+
   goodListPagination: {
     index: 0,
     num: 20,
@@ -34,7 +36,6 @@ Page({
   onShow() {
     this.getTabBar().init();
   },
-
 
   onLoad() {
     this.init();
@@ -52,6 +53,33 @@ Page({
 
   init() {
     this.loadHomePage();
+  },
+
+
+  /*   筛选器 */
+  handleFilterChange(e) {
+    const { layout, overall, sorts } = e.detail;
+    this.pageNum = 1;
+    this.setData({
+      layout,
+      sorts,
+      overall,
+      loadMoreStatus: 0,
+    });
+    this.init(true);
+  },
+
+  /*   打开关闭筛选 */
+  showFilterPopup() {
+    this.setData({
+      show: true,
+    });
+  },
+
+  showFilterPopupClose() {
+    this.setData({
+      show: false,
+    });
   },
 
   loadHomePage() {
