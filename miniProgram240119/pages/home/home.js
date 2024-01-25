@@ -1,6 +1,6 @@
-import { fetchHome } from '../../services/home/home';
-import { fetchGoodsList } from '../../services/good/fetchGoods';
 import Toast from 'tdesign-miniprogram/toast/index';
+import { fetchGoodsList } from '../../services/good/fetchGoods';
+import { fetchHome } from '../../services/home/home';
 
 Page({
   data: {
@@ -15,12 +15,17 @@ Page({
     interval: 5000,
     navigation: { type: 'dots' },
     swiperImageProps: { mode: 'scaleToFill' },
+    fabButton: {
+      icon: 'share',
+      openType: 'share',
+    },
   },
 
   goodListPagination: {
     index: 0,
     num: 20,
   },
+
 
   privateData: {
     tabIndex: 0,
@@ -29,6 +34,7 @@ Page({
   onShow() {
     this.getTabBar().init();
   },
+
 
   onLoad() {
     this.init();
@@ -61,6 +67,7 @@ Page({
         pageLoading: false,
       });
       this.loadGoodsList(true);
+
     });
   },
 
@@ -71,6 +78,13 @@ Page({
 
   onReTry() {
     this.loadGoodsList();
+  },
+
+
+  /*  悬浮钮 */
+  handleClick(e) {
+    console.log(e);
+    /* wx.navigateTo({ url: '/pages/goods/search/index' }); */
   },
 
   async loadGoodsList(fresh = false) {

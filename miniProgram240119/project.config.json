@@ -8,7 +8,7 @@
     "urlCheck": true,
     "es6": true,
     "enhance": true,
-    "postcss": true,
+    "postcss": false,
     "preloadBackgroundData": false,
     "minified": true,
     "newFeature": false,
@@ -54,6 +54,12 @@
   "condition": {
     "miniprogram": {
       "list": [
+        {
+          "name": "测试新建",
+          "pathName": "pages/testPage/testPage",
+          "query": "",
+          "scene": null
+        },
         {
           "name": "首页入口",
           "pathName": "pages/home/home",

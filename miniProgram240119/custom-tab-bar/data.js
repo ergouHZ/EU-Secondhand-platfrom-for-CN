@@ -24,7 +24,7 @@ export default [
   {
     icon: 'chat',
     text: '消息',
-    url: 'pages/cart/index',
+    url: 'pages/testPage/testPage',
   },
 
 ];

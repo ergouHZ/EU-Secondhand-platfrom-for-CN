@@ -4,8 +4,8 @@ Component({
   properties: {
     priceUnit: {
       type: String,
-      value: 'fen',
-    }, // 价格单位，分 | 元, fen，yuan
+      value: 'cents',
+    }, // 价格单位，分 | 元, cents，euros
     price: {
       type: null,
       value: '',
@@ -19,8 +19,8 @@ Component({
     }, //  main 粗体, lighter 细体, mini 黑色, del 中划线, delthrough 中划线，包括货币符号
     symbol: {
       type: String,
-      value: '¥', // '￥',
-    }, // 货币符号，默认是人民币符号￥
+      value: '€', // '￥',
+    }, // 货币符号，默认是欧元，因为在欧洲的品牌
     fill: Boolean, // 是否自动补齐两位小数
     decimalSmaller: Boolean, // 小数字号小一点
     lineThroughWidth: {
@@ -48,8 +48,8 @@ Component({
           pArr[1] = !priceSplit[1]
             ? '00'
             : priceSplit[1].length === 1
-            ? `${priceSplit[1]}0`
-            : priceSplit[1];
+              ? `${priceSplit[1]}0`
+              : priceSplit[1];
         } else {
           price = Math.round(price * 10 ** 8) / 10 ** 8; // 恢复精度丢失
           price = Math.ceil(price); // 向上取整

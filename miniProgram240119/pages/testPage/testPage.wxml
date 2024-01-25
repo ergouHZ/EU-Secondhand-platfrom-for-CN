@@ -1,0 +1,5 @@
+<view >
+    hello
+</view>
+
+<t-fab class="fabButton" icon="add" button-props="{{fabButton}}" bind:click="handleClick" text="发布二手" />

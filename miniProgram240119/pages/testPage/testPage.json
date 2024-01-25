@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "测试",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "t-fab": "tdesign-miniprogram/fab/fab"
+  }
+}

@@ -3,8 +3,8 @@
   "eslint.enable": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true,
-    "source.fixAll.eslint": true
+    "source.fixAll.tslint": "explicit",
+    "source.fixAll.eslint": "explicit"
   },
   "[javascript]": {
     "editor.formatOnSave": true,
@@ -35,6 +35,6 @@
     "editor.defaultFormatter": "HookyQR.beautify"
   },
   "[wxml]": {
-    "editor.defaultFormatter": "wechat.miniprogram.wxml-language-features"
+    "editor.defaultFormatter": "qiu8310.minapp-vscode"
   }
 }

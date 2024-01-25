@@ -1,9 +1,45 @@
 .custom-tab-bar-wrapper {
+  transform: scale(1.00);
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.custom-tab-bar-wrapper .text {
-  font-size: 20rpx;
+.custom-tab-bar-wrapper .text{
+  font-size: 22rpx;
+}
+
+.middle-item .text{
+  font-size: 22rpx;
+
+}
+
+.tab-icon{
+  margin: 4rpx;
+}
+
+.middle-item {
+  /* special styles for the middle item */
+  transform: scale(1.25);
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140rpx;
+  height: 130rpx;
+
+  border-radius: 50%;
+
+  border: 2px solid transparent; /* 设置边框为透明 */
+  background-image: linear-gradient(to right, rgb(255, 180, 219), rgba(191, 191, 251, 0.956)); /* 水平渐变 from red to blue */
+  background-clip: padding-box;
+}
+
+.custom-tab-bar{
+  --td-tab-bar-active-bg:rgba(210, 224, 240, 0.715);
+  --td-tab-bar-active-color:rgba(26, 0, 141, 0.875);
+  --td-tab-bar-color:rgba(0, 0, 0, 0.716);
+
 }
