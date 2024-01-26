@@ -164,6 +164,8 @@ Page({
     wx.navigateTo({ url: '/pages/goods/search/index' });
   },
 
+
+
   navToActivityDetail({ detail }) {
     const { index: promotionID = 0 } = detail || {};
     wx.navigateTo({
@@ -171,3 +173,4 @@ Page({
     });
   },
 });
+

@@ -1,12 +1,19 @@
+
 export const config = {
   /** 是否使用mock代替api返回 */
   useMock: true,
+  envId: 'cloud1-2gt7rgawd6658b5d'   /* 云服务id */
 };
 
 export const cdnBase =
-  'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp';
+  'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp'
 
-export const areaData = [
+
+
+
+
+/* 中国定位 用不上 需要找爱尔兰的 */
+/*export const areaData = [
   {
     label: '北京市',
     value: '110000',
@@ -20435,3 +20442,4 @@ export const areaData = [
     ],
   },
 ];
+*/

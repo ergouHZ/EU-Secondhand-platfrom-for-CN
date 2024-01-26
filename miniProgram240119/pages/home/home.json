@@ -16,7 +16,6 @@
     "goods-list": "/components/goods-list/index",
     "load-more": "/components/load-more/index",
     "filter": "/components/filter/index",
-    "filter-popup": "/components/filter-popup/index",
-    "t-popup": "tdesign-miniprogram/popup/popup"
+    "filter-popup": "/components/filter-popup/index"
   }
 }
