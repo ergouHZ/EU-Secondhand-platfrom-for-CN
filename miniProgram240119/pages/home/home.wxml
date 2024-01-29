@@ -31,7 +31,7 @@
       autoplay="{{autoplay}}"
       duration="{{duration}}"
       interval="{{interval}}"
-      navigation="{{navigation}}"
+      navigation="{{ { type: 'dots-bar' } }}"
       imageProps="{{swiperImageProps}}"
       list="{{imgSrcs}}"
       bind:click="navToActivityDetail"

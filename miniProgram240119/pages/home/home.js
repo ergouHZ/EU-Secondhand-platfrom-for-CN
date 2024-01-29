@@ -2,6 +2,17 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
 import { fetchHome } from '../../services/home/home';
 
+
+const swiperList = [
+  'https://636c-cloud1-2gt7rgawd6658b5d-1323986321.tcb.qcloud.la/img/swiper/num1.png?sign=4b3e7e8d0cf872c8ee096a233fda3e91&t=1706549772',
+  'https://636c-cloud1-2gt7rgawd6658b5d-1323986321.tcb.qcloud.la/img/swiper/num2ad.png?sign=8ee48d0175444a26525e2619b458ed44&t=1706549789',
+  /*   'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png',
+    'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner4.png',
+    'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner5.png',
+    'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner6.png', */
+];
+
+
 Page({
   data: {
     imgSrcs: [],
@@ -108,10 +119,13 @@ Page({
         goodsListLoadStatus: 0,
       });
 
+      //0代表导入成功
+
       this.goodListPagination.index = pageIndex;
       this.goodListPagination.num = pageSize;
     } catch (err) {
       this.setData({ goodsListLoadStatus: 3 });
+      console.log("载入数据失败")
     }
   },
 
@@ -142,6 +156,8 @@ Page({
 
   navToActivityDetail({ detail }) {
     const { index: promotionID = 0 } = detail || {};
+
+    console.log(promotionID)
     wx.navigateTo({
       url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
     });
