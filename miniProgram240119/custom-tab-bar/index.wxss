@@ -35,13 +35,13 @@
   border-radius: 50%;
 
   border: 2px solid transparent; /* 设置边框为透明 */
-  background-image: linear-gradient(to right, rgba(185, 255, 180, 0.595), rgba(162, 212, 243, 0.759)); /* 水平渐变 from red to blue */
+  background-image: linear-gradient(to right, rgba(185, 255, 180, 0.595), rgba(145, 217, 241, 0.759)); /* 水平渐变 from red to blue */
   background-clip: padding-box;
 }
 
 .custom-tab-bar{
-  --td-tab-bar-active-bg:rgba(226, 238, 70, 0.715);
-  --td-tab-bar-active-color:rgba(26, 0, 141, 0.875);
+  --td-tab-bar-active-bg:rgba(107, 241, 199, 0.715);
+  --td-tab-bar-active-color:rgba(21, 1, 108, 0.875);
   --td-tab-bar-color:rgba(0, 0, 0, 0.716);
 
 }
