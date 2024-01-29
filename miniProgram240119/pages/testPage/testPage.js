@@ -1,5 +1,6 @@
 const db = wx.cloud.database();
 
+
 Page({
   // data: {
   //   fabButton: {
@@ -43,7 +44,7 @@ Page({
 
 
     // 这里进行数据库的查询操作
-    db.collection('testA').get().then(res => {
+    db.collection('swiperImg').get().then(res => {
       // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
       console.log(res.data)
     });
