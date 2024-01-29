@@ -18,7 +18,15 @@
 
   <!-- 横扫图片 -->
   <view class="swiper-wrap" style="width: 702rpx; height: 384rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 0rpx">
-    <t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{ { type: 'dots-bar' } }}" imageProps="{{swiperImageProps}}" list="{{swiperList}}" bind:click="navToActivityDetail" />
+    <t-swiper
+    current="{{current}}"
+    autoplay="{{autoplay}}"
+    duration="{{duration}}"
+    interval="{{interval}}"
+    navigation="{{ { type: 'dots-bar' } }}"
+    imageProps="{{swiperImageProps}}"
+    list="{{imgSrcs}}"
+    bind:click="navToActivityDetail" />
   </view>
 
 </view>
