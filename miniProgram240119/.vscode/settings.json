@@ -35,6 +35,6 @@
     "editor.defaultFormatter": "HookyQR.beautify"
   },
   "[wxml]": {
-    "editor.defaultFormatter": "qiu8310.minapp-vscode"
+    "editor.defaultFormatter": "wechat.miniprogram.wxml-language-features"
   }
 }

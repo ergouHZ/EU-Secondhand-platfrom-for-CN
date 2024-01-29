@@ -109,12 +109,6 @@ Page({
   },
 
 
-  /*  悬浮钮 */
-  handleClick(e) {
-    console.log(e);
-    /* wx.navigateTo({ url: '/pages/goods/search/index' }); */
-  },
-
   async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
@@ -164,6 +158,9 @@ Page({
     wx.navigateTo({ url: '/pages/goods/search/index' });
   },
 
+  navToCategoryPage() {
+    wx.navigateTo({ url: '/pages/goods/category/index' });
+  },
 
 
   navToActivityDetail({ detail }) {

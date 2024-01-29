@@ -2,20 +2,28 @@
   <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
 </view>
 <view class="home-page-header">
-  <view class="search" bind:tap="navToSearchPage">
+  <view class="search"  style="width: 638rpx; height: 72rpx; display: block; box-sizing: border-box">
     <t-search
       t-class-input="t-search__input"
       t-class-input-container="t-search__input-container"
       placeholder="搜索商品"
       leftIcon=""
       disabled
+      bind:tap="navToSearchPage"
     >
 
       <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
     </t-search>
+
+<!--搜索栏右边的分类按钮 -->
+      <view class="sorticon" bind:tap="navToCategoryPage" style="width: 70rpx; height: 92rpx; display: block; box-sizing: border-box; position: relative; left: 638rpx; top: -64rpx">
+      <t-icon class="sorticonIcon"  name="app" size="52rpx" />
+      <view class="sortText">分类</view>
+      </view>
+
   </view>
 
-<!-- 这个图片横扫暂时不用 -->
+<!-- 横扫图片 -->
   <view class="swiper-wrap" style="width: 702rpx; height: 384rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 0rpx">
     <t-swiper
       wx:if="{{imgSrcs.length > 0}}"
@@ -33,7 +41,7 @@
 </view>
 <view class="home-page-container">
 
-  <view class="home-page-tabs">
+  <view class="home-page-tabs" style="position: relative; left: 0rpx; top: 0rpx">
     <t-tabs
       t-class="t-tabs"
       t-class-active="tabs-external__active"
@@ -62,7 +70,7 @@
 	  sorts="{{sorts}}"
 	  overall="{{overall}}"
 	  bind:showFilterPopup="showFilterPopup"
-	>
+	 style="position: relative; left: 0rpx; top: 16rpx">
 		<filter-popup
 		  slot="filterPopup"
 		  show="{{show}}"
@@ -96,7 +104,7 @@
 	</filter>
 
 
-  <goods-list style="position: relative; left: 0rpx; top: -16rpx"
+  <goods-list style="position: relative; left: 0rpx; top: 0rpx"
     wr-class="goods-list-container"
     goodsList="{{goodsList}}"
     bind:click="goodListClickHandle"

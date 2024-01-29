@@ -109,3 +109,11 @@ page {
 /* 导航栏在component文件夹里 */
 
 
+/* 分类图标的字体大小 */
+.sortText{
+  font-size: x-small;
+  margin-left: 8rpx;
+  color: #333333;
+}
+
+

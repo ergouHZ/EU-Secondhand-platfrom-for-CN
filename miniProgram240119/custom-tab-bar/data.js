@@ -5,9 +5,9 @@ export default [
     url: 'pages/home/home',
   },
   {
-    icon: 'app',
-    text: '分类',
-    url: 'pages/goods/category/index',
+    icon: 'houses-1',
+    text: '租房',
+    url: 'pages/testPage/testPage',
   },
 
   {
@@ -16,8 +16,8 @@ export default [
     url: 'pages/testPage/testPage',
   },
   {
-    icon: 'houses-1',
-    text: '租房',
+    icon: 'chat-message',
+    text: '消息',
     url: 'pages/cart/index',
   },
 
