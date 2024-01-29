@@ -17,7 +17,7 @@ Page({
   onLoad() {
     console.log('11');
 
-    const todos = db.collection('testA');
+    /*     const swipers = db.collection('swiperImg'); */
     const todo = db.collection('todos').doc('test111');
 
     /*     db.collection("testA").add({
@@ -43,19 +43,9 @@ Page({
 
 
     // 这里进行数据库的查询操作
-    todos.doc('todo-identifiant-aleatoire').get({
-      success: (res) => {
-        //res.data 包含该记录的数据
-        console.log(res.data);
-        console.log(res.data.tags);
-        //如果你想要在页面上显示这些数据，你需要设置 data 属性
-        this.setData({
-          todo: res.data
-        });
-      },
-      fail: (err) => {
-        console.error(err);
-      }
+    db.collection('testA').get().then(res => {
+      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+      console.log(res.data)
     });
 
 

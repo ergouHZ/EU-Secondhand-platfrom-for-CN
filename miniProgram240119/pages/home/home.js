@@ -30,6 +30,7 @@ Page({
       icon: 'share',
       openType: 'share',
     },
+    swiperList,
   },
 
   pageNum: 1,
