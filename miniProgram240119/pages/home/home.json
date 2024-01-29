@@ -14,8 +14,6 @@
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
     "goods-list": "/components/goods-list/index",
-    "load-more": "/components/load-more/index",
-    "filter": "/components/filter/index",
-    "filter-popup": "/components/filter-popup/index"
+    "load-more": "/components/load-more/index"
   }
 }

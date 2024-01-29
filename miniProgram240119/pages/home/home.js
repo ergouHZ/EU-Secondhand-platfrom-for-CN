@@ -56,32 +56,6 @@ Page({
   },
 
 
-  /*   筛选器 */
-  handleFilterChange(e) {
-    const { layout, overall, sorts } = e.detail;
-    this.pageNum = 1;
-    this.setData({
-      layout,
-      sorts,
-      overall,
-      loadMoreStatus: 0,
-    });
-    this.init(true);
-  },
-
-  /*   打开关闭筛选 */
-  showFilterPopup() {
-    this.setData({
-      show: true,
-    });
-  },
-
-  showFilterPopupClose() {
-    this.setData({
-      show: false,
-    });
-  },
-
   loadHomePage() {
     wx.stopPullDownRefresh();
 
@@ -99,6 +73,7 @@ Page({
     });
   },
 
+
   tabChangeHandle(e) {
     this.privateData.tabIndex = e.detail;
     this.loadGoodsList(true);
@@ -109,6 +84,8 @@ Page({
   },
 
 
+
+  //获取商品清单
   async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
