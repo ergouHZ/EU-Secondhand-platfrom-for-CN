@@ -16,6 +16,9 @@
           {{ goods.title }}
         </view>
 
+
+
+        <!-- tag栏,改成用户名? -->
         <view wx:if="{{ goods.tags && !!goods.tags.length }}"
         class="goods-card__tags">
           <view wx:for="{{ goods.tags }}"
@@ -27,6 +30,8 @@
           </view>
         </view>
       </view>
+
+      
       
       <view class="goods-card__down">
         <price

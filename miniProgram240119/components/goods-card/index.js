@@ -27,6 +27,8 @@ Component({
         this.setData({ goods: data, isValidityLinePrice });
       },
     },
+
+    /*  货币 */
     currency: {
       type: String,
       value: '¥',
@@ -34,7 +36,7 @@ Component({
 
     thresholds: {
       type: Array,
-      value: [],
+      value: [0, 0.5, 1],
       observer(thresholds) {
         if (thresholds && thresholds.length) {
           this.createIntersectionObserverHandle();
@@ -47,7 +49,7 @@ Component({
 
   data: {
     independentID: '',
-    goods: { id: '' },
+    goods: { id: '' },  /*  WXml加载的货物ID */
     isValidityLinePrice: false,
   },
 
@@ -118,6 +120,7 @@ Component({
         `#${this.data.independentID}`,
         (res) => {
           this.intersectionObserverCB(res);
+          console.log(res.data);
         },
       );
     },
@@ -126,14 +129,17 @@ Component({
       this.triggerEvent('ob', {
         goods: this.data.goods,
         context: this.intersectionObserverContext,
+
       });
+
+      console.log(this.intersectionObserver);
     },
 
     clearIntersectionObserverHandle() {
       if (this.intersectionObserverContext) {
         try {
           this.intersectionObserverContext.disconnect();
-        } catch (e) {}
+        } catch (e) { }
         this.intersectionObserverContext = null;
       }
     },
