@@ -17,6 +17,14 @@ Page({
       },
     },
     data: {
+
+      goods: {
+        id: '1',
+        price: 99.99,
+        thumb: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        // ...其他商品属性...
+      },
+
       type: Object,
       observer(data) {
         if (!data) {
@@ -38,7 +46,7 @@ Page({
 
     thresholds: {
       type: Array,
-      value: [0, 0.5, 1],
+      value: [],
       observer(thresholds) {
         if (thresholds && thresholds.length) {
           this.createIntersectionObserverHandle();
