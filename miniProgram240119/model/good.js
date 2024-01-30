@@ -369,6 +369,9 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08d.png',
     ],
   },
+
+
+
   {
     saasId: '88888888',
     storeId: '1000',
