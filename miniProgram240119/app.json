@@ -29,7 +29,8 @@
     "pages/order/delivery-detail/index",
     "pages/order/invoice/index",
     "pages/usercenter/name-edit/index",
-    "pages/testPage/testPage"
+    "pages/testPage/testPage",
+    "pages/rent/rent"
   ],
   "tabBar": {
     "custom": true,

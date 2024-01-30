@@ -1,3 +1,10 @@
 {
-  "component": true
+  "navigationBarTitleText": "租房",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "price": "/components/price/index",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-image": "/components/webp-image/index"
+  }
 }

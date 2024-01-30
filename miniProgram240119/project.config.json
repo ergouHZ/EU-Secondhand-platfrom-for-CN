@@ -56,6 +56,12 @@
     "miniprogram": {
       "list": [
         {
+          "name": "租房分类",
+          "pathName": "pages/rent/rent",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "测试新建",
           "pathName": "pages/testPage/testPage",
           "query": "",
