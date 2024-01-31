@@ -6,8 +6,9 @@
       wx:if="{{ !!goods.thumb }}"
       t-class="goods-card__img"
       src="{{ goods.thumb }}"
-      mode="heightFix"
-      lazy-load="true" />
+      mode="aspectFit"
+      lazy-load="true"
+      bindload="loadLazyImgChange"/>
     </view>
 
     <view class="goods-card__body">

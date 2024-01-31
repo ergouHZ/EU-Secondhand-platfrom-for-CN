@@ -127,8 +127,9 @@ Component({
 
           console.log(res);
 
-          if (res.intersectionRatio > 0.5 && (res.dataset.goods.spuId % 3) === 0) {
+          if (res.intersectionRatio > 0.2 && (res.dataset.goods.spuId % 3) === 0) {
             // 当元素超过50%可见时执行的操作
+            this.intersectionObserverCB();
             console.log('Element is more than 50% visible');
           } else if (res.intersectionRatio > 0 && (res.dataset.goods.spuId % 3) === 0) {
             // 当元素部分可见时执行的操作
@@ -143,7 +144,7 @@ Component({
 
 
           //
-          this.intersectionObserverCB();
+
         },
       );
     },
@@ -168,5 +169,9 @@ Component({
         this.intersectionObserverContext = null;
       }
     },
+
+    loadLazyImgChange() {
+      console.log('e');
+    }
   },
 });

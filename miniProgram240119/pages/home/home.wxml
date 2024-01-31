@@ -41,7 +41,7 @@
 
 
   <goods-list
-  style="position: relative; left: 0rpx; top: 0rpx"
+  style="position: relative; left: 0rpx; top: 546rpx"
   wr-class="goods-list-container"
   goodsList="{{goodsList}}"
   bind:click="goodListClickHandle"
