@@ -11,8 +11,6 @@ Page({
       this.setData({
         list: result,
       });
-
-      console.log(this.data.list);
     } catch (error) {
       console.error('err:', error);
     }
@@ -22,11 +20,13 @@ Page({
     /*     this.getTabBar().init(); */
   },
 
-  onChange() {
-    wx.navigateTo({
-      url: '/pages/goods/list/index',
-    });
-  },
+  /*   onChange() {
+      wx.navigateTo({
+        url: '/pages/goods/list/index',
+      });
+    }, */
+
+
   onLoad() {
     this.init();
   },

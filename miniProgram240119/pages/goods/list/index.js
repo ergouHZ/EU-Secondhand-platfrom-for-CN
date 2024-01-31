@@ -130,7 +130,10 @@ Page({
     });
   },
 
-  onLoad() {
+  onLoad(options) {
+
+    const groupId = options.groupId;
+    console.log(groupId);
     this.init(true);
   },
 

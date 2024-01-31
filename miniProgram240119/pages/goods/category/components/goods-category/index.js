@@ -51,6 +51,7 @@ Component({
         this.triggerEvent('change', [
           this.data.activeKey,
           this.data.subActiveKey,
+
         ]);
       });
     },
@@ -58,8 +59,15 @@ Component({
       const { item } = event.currentTarget.dataset;
       this.triggerEvent('changeCategory', {
         item,
+
+      });
+
+      wx.navigateTo({
+        url: '/pages/goods/list/index?groupId=' + JSON.stringify(item.groupId)
       });
     },
+
+
 
     setActiveKey(key, subKey) {
       return new Promise((resolve) => {
