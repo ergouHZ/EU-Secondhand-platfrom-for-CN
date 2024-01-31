@@ -7,12 +7,31 @@ Page({
     conditions: ['全新', '几乎全新', '状况良好', '状况尚可', '状况较差'],
     currentCategory: '选择类别',
     currentCondition: '选择状况',
-    images: []
+    images: [],
+    options: [],
+
+    /*    类别联级栏数据 */
+    subTitles: ['请选择主类', '请选择次类', '请选择次类'],
+    note: '请选择类别',
+    visible: true,
+    keys: {
+      label: 'name',
+      value: 'groupId',
+      children: 'children',
+
+    },
+
   },
 
+
+
+
+  /* 获取所有表单值 */
   submitForm(e) {
     const formData = e.detail.value;
     console.log('Form data:', formData);
+
+
     // 这里可以加入表单提交逻辑，如 wx.request 发送网络请求等
     wx.showToast({
       title: '商品发布成功',
@@ -22,13 +41,28 @@ Page({
     // 提交后的处理，如清空表单，跳转页面等
   },
 
+  async init() {
+    try {
+      console.log('e');
+      await db.collection('category').doc('1fe899fa65ba9c3b000000364501012c').get().then(res => {
+        this.setData({
+          options: res.data.categories,
+
+        })
+      });
+      console.log(this.data.options);
+    } catch (error) {
+      console.error('err:', error);
+    }
+  },
+
   onShow() {
     this.getTabBar().init();
   },
 
 
   onLoad() {
-    console.log('11');
+    /* console.log('11'); */
 
     /*     const swipers = db.collection('swiperImg'); */
     const todo = db.collection('todos').doc('test111');
@@ -55,12 +89,6 @@ Page({
 
 
 
-    // 这里进行数据库的查询操作
-    db.collection('swiperImg').get().then(res => {
-      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-      console.log(res.data)
-    });
-
 
     /*     通过云路径id获取文件url方法
         wx.cloud.getTempFileURL({
@@ -77,8 +105,29 @@ Page({
   },
 
   /*  悬浮钮 */
-  handleClick(e) {
-    console.log(e);
-    wx.navigateTo({ url: '/pages/goods/search/index' });
+  /*   handleClick(e) {
+      console.log(e);
+      wx.navigateTo({ url: '/pages/goods/search/index' });
+    },
+   */
+
+
+
+  /* 初始化页面,即加载类别 */
+  onReady() {
+    this.init();
   },
+
+  showCascader() {
+    this.setData({ visible: true });
+  },
+  onChange(e) {
+    const { selectedOptions } = e.detail;
+
+    this.setData({
+      note: selectedOptions.map((item) => item.label).join('/'),
+    });
+    console.log(this.data.note);
+  },
+
 });

@@ -20,12 +20,6 @@ Page({
     /*     this.getTabBar().init(); */
   },
 
-  /*   onChange() {
-      wx.navigateTo({
-        url: '/pages/goods/list/index',
-      });
-    }, */
-
 
   onLoad() {
     this.init();
