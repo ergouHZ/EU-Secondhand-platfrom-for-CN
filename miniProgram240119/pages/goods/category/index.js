@@ -7,7 +7,7 @@ Page({
 
   async init() {
     try {
-      const result = await this.getCategoryListReal();
+      const result = await this.getCategoryList();
       this.setData({
         list: result,
       });
