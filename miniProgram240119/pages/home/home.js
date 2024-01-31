@@ -71,6 +71,9 @@ Page({
   },
 
 
+
+
+
   tabChangeHandle(e) {
     this.privateData.tabIndex = e.detail;
     this.loadGoodsList(true);
