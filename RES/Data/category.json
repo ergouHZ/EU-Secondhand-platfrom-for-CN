@@ -1,175 +1,269 @@
 {
   "categories": [
     {
-      "groupId": 100001,
+      "groupId": 10001,
       "name": "电子产品",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 101001,
-          "name": "手机 & 平板电脑",
-          "thumbnail": ""
-        },
-        {
-          "id": 101002,
-          "name": "电脑 & 笔记本",
-          "thumbnail": ""
-        },
-        {
-          "id": 101003,
-          "name": "摄影 & 视频设备",
-          "thumbnail": ""
-        },
-        {
-          "id": 101004,
-          "name": "音频 & 音响设备",
-          "thumbnail": ""
+          "groupId": 100001,
+          "name": "电子产品",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 101001,
+              "name": "手机 & 平板电脑",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 101002,
+              "name": "电脑 & 笔记本",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 101003,
+              "name": "摄影 & 视频设备",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 101004,
+              "name": "音频 & 音响设备",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100002,
-      "name": "家居 & 家具",
-      "subcategories": [
+      "groupId": 10002,
+      "name": "家居 & 厨房",
+      "thumbnail": "",
+      "children": [
         {
-          "id": 102001,
-          "name": "家具",
-          "thumbnail": ""
-        },
-        {
-          "id": 102002,
-          "name": "家居装饰",
-          "thumbnail": ""
-        },
-        {
-          "id": 102003,
-          "name": "家用电器",
-          "thumbnail": ""
+          "groupId": 10002,
+          "name": "家居 & 厨房",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 102001,
+              "name": "家具",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 102002,
+              "name": "家居装饰",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 102003,
+              "name": "家用电器",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 102004,
+              "name": "厨具",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 102005,
+              "name": "调料",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100003,
+      "groupId": 10003,
       "name": "时尚 & 美容",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 103001,
-          "name": "服装",
-          "thumbnail": ""
-        },
-        {
-          "id": 103002,
-          "name": "鞋类",
-          "thumbnail": ""
-        },
-        {
-          "id": 103003,
-          "name": "配饰",
-          "thumbnail": ""
+          "groupId": 100003,
+          "name": "时尚 & 美容",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 103001,
+              "name": "服装",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 103002,
+              "name": "鞋类",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 103003,
+              "name": "配饰",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 103004,
+              "name": "化妆品",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100004,
+      "groupId": 10004,
       "name": "运动 & 户外",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 104001,
-          "name": "运动装备",
-          "thumbnail": ""
-        },
-        {
-          "id": 104002,
-          "name": "自行车 & 滑板",
-          "thumbnail": ""
-        },
-        {
-          "id": 104003,
-          "name": "钓鱼 & 徒步",
-          "thumbnail": ""
+          "groupId": 100004,
+          "name": "运动 & 户外",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 104001,
+              "name": "运动装备",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 104002,
+              "name": "钓鱼 & 徒步",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100005,
-      "name": "汽车 & 摩托车",
-      "subcategories": [
+      "groupId": 10005,
+      "name": "交通工具",
+      "thumbnail": "",
+      "children": [
         {
-          "id": 105001,
-          "name": "汽车",
-          "thumbnail": ""
-        },
-        {
-          "id": 105002,
-          "name": "摩托车",
-          "thumbnail": ""
+          "groupId": 100005,
+          "name": "交通工具",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 105001,
+              "name": "汽车",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 105002,
+              "name": "摩托车",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 105003,
+              "name": "电滑板",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 105004,
+              "name": "自行车",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100006,
+      "groupId": 10006,
       "name": "娱乐 & 游戏",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 106001,
-          "name": "电子游戏",
-          "thumbnail": ""
-        },
-        {
-          "id": 106002,
-          "name": "书籍 & 杂志",
-          "thumbnail": ""
-        },
-        {
-          "id": 106003,
-          "name": "音乐 & 电影",
-          "thumbnail": ""
+          "groupId": 10006,
+          "name": "娱乐 & 游戏",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 106001,
+              "name": "电子游戏",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 106002,
+              "name": "书籍 & 杂志",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 106003,
+              "name": "乐器",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 106004,
+              "name": "票转让",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100007,
+      "groupId": 10007,
       "name": "儿童用品",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 107001,
-          "name": "玩具",
-          "thumbnail": ""
-        },
-        {
-          "id": 107002,
-          "name": "儿童家具",
-          "thumbnail": ""
-        },
-        {
-          "id": 107003,
-          "name": "婴儿用品",
-          "thumbnail": ""
+          "groupId": 100007,
+          "name": "儿童用品",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 107001,
+              "name": "玩具",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 107002,
+              "name": "儿童家具",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 107003,
+              "name": "婴儿用品",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     },
     {
-      "groupId": 100008,
+      "groupId": 10008,
       "name": "其他",
-      "subcategories": [
+      "thumbnail": "",
+      "children": [
         {
-          "id": 108001,
-          "name": "收藏品 & 艺术",
-          "thumbnail": ""
-        },
-        {
-          "id": 108002,
-          "name": "宠物用品",
-          "thumbnail": ""
-        },
-        {
-          "id": 108003,
-          "name": "工具 & 机械",
-          "thumbnail": ""
-        },
-        {
-          "id": 108004,
-          "name": "服务",
-          "thumbnail": ""
+          "groupId": 100008,
+          "name": "其他",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 108001,
+              "name": "收藏品 & 艺术",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 108002,
+              "name": "宠物用品",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 108003,
+              "name": "工具 & 机械",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 108004,
+              "name": "服务",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 108005,
+              "name": "其他",
+              "thumbnail": ""
+            }
+          ]
         }
       ]
     }
