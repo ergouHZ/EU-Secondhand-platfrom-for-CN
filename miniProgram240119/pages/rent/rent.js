@@ -9,7 +9,7 @@ Page({
       /* 这项改成userid */
       spuId: '0',
       title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-      primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+      thumb: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
       images: [
         'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09b.png',
@@ -17,11 +17,10 @@ Page({
       video: null,
       available: 1,
       minSalePrice: 29800,
-      minLinePrice: 29800,
+      originPrice: 29800,
       maxSalePrice: 29800,
-      maxLinePrice: 40000,
-      spuStockQuantity: 510,
-      soldNum: 1020,
+      price: 40000,
+      //改了一些商品数据
       isPutOnSale: 1,
       categoryIds: [
         '127880527393854975',

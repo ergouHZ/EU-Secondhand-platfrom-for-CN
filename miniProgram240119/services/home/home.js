@@ -19,7 +19,7 @@ export function fetchHome() {
             key: 0,
           },
           {
-            text: '夏日防晒',
+            text: '美妆用品',
             key: 1,
           },
           {
@@ -27,23 +27,23 @@ export function fetchHome() {
             key: 2,
           },
           {
-            text: '人气榜',
+            text: '衣物',
             key: 3,
           },
           {
-            text: '好评榜',
+            text: '电子产品',
             key: 4,
           },
           {
-            text: 'RTX 30',
+            text: '交通工具',
             key: 5,
           },
           {
-            text: '手机产品',
+            text: '二手烟',
             key: 6,
           },
         ],
-        /*         activityImg: `${cdnBase}/activity/banner.png`, */
+
       };
     });
 
