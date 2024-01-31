@@ -128,7 +128,7 @@ Component({
           /* 可见一部分时执行操作 */
           if (res.intersectionRatio > 0.05) {
             this.intersectionObserverCB();
-            console.log('Element is more than 20% visible');
+            /*             console.log('Element is more than 20% visible'); */
 
           } /* else if (res.intersectionRatio > 0) {
             // 当元素部分可见时执行的操作

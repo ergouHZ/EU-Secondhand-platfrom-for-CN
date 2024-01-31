@@ -2,13 +2,25 @@ const db = wx.cloud.database();
 
 
 Page({
-  // data: {
-  //   fabButton: {
-  //     icon: 'share',
-  //     openType: 'share',
-  //   },
-  // },
+  data: {
+    categories: ['电子产品', '书籍', '家具', '服装', '运动用品'],
+    conditions: ['全新', '几乎全新', '状况良好', '状况尚可', '状况较差'],
+    currentCategory: '选择类别',
+    currentCondition: '选择状况',
+    images: []
+  },
 
+  submitForm(e) {
+    const formData = e.detail.value;
+    console.log('Form data:', formData);
+    // 这里可以加入表单提交逻辑，如 wx.request 发送网络请求等
+    wx.showToast({
+      title: '商品发布成功',
+      icon: 'success',
+      duration: 2000
+    });
+    // 提交后的处理，如清空表单，跳转页面等
+  },
 
   onShow() {
     this.getTabBar().init();
