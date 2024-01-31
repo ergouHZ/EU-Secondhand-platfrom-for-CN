@@ -181,14 +181,16 @@ Page({
      */
   onLoad: function (options) {
 
-    console.log(this.data.goodsExample.spuId);
-    console.log(this.data.goodsExample.minSalePrice);
 
-    this.data.goodsExample.skuList.forEach(sku => {
-      sku.priceInfo.forEach(price => {
-        console.log(`价格类型${price.priceType}:价格${price.price}`)
-      })
-    })
+    // 商品fetch list方法
+    /*     console.log(this.data.goodsExample.spuId);
+        console.log(this.data.goodsExample.minSalePrice);
+    
+        this.data.goodsExample.skuList.forEach(sku => {
+          sku.priceInfo.forEach(price => {
+            console.log(`价格类型${price.priceType}:价格${price.price}`)
+          })
+        }) */
 
   },
 

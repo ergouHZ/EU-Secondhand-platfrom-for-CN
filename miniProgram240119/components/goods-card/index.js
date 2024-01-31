@@ -36,10 +36,11 @@ Component({
 
     thresholds: {
       type: Array,
-      value: [0, 0.5, 1],
+      value: [],
       observer(thresholds) {
         if (thresholds && thresholds.length) {
           this.createIntersectionObserverHandle();
+
         } else {
           this.clearIntersectionObserverHandle();
         }
@@ -106,7 +107,10 @@ Component({
       this.clearIntersectionObserverHandle();
     },
 
+
     intersectionObserverContext: null,
+
+
 
     createIntersectionObserverHandle() {
       if (this.intersectionObserverContext || !this.data.independentID) {
@@ -116,24 +120,45 @@ Component({
         thresholds: this.properties.thresholds,
       }).relativeToViewport();
 
+
       this.intersectionObserverContext.observe(
         `#${this.data.independentID}`,
         (res) => {
-          this.intersectionObserverCB(res);
-          console.log(res.data);
+
+          console.log(res);
+
+          if (res.intersectionRatio > 0.5 && (res.dataset.goods.spuId % 3) === 0) {
+            // 当元素超过50%可见时执行的操作
+            console.log('Element is more than 50% visible');
+          } else if (res.intersectionRatio > 0 && (res.dataset.goods.spuId % 3) === 0) {
+            // 当元素部分可见时执行的操作
+            console.log('Element is now visible');
+          } else if (res.intersectionRatio < 0 && (res.dataset.goods.spuId % 3) === 0) {
+            // 当元素部分可见时执行的操作
+            console.log('Element is not visible');
+          };
+
+          /* console.log(res.dataset.goods.spuId % 3); */
+          /* console.log('createdIno') */
+
+
+          //
+          this.intersectionObserverCB();
         },
       );
     },
+
+
+    //满足条件的操作
 
     intersectionObserverCB() {
       this.triggerEvent('ob', {
         goods: this.data.goods,
         context: this.intersectionObserverContext,
-
       });
-
-      console.log(this.intersectionObserver);
+      console.log('intersectionObserverCB');
     },
+
 
     clearIntersectionObserverHandle() {
       if (this.intersectionObserverContext) {
