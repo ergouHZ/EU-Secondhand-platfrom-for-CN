@@ -3,6 +3,7 @@ Page({
   data: {
     list: [],
   },
+
   async init() {
     try {
       const result = await getCategoryList();
@@ -25,4 +26,12 @@ Page({
   onLoad() {
     this.init(true);
   },
+
+
+  getCategoryListReal() {
+
+  }
+
 });
+
+

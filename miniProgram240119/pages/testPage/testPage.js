@@ -11,7 +11,7 @@ Page({
 
 
   onShow() {
-    /*     this.getTabBar().init(); */
+    this.getTabBar().init();
   },
 
 

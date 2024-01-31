@@ -1,5 +1,45 @@
-<view >
-    hello
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-item">
+      <label for="title" class="form-label">商品名称:</label>
+      <input name="title" type="text" placeholder="请输入商品名称" class="form-input"/>
+    </view>
+    <view class="form-item">
+      <label for="description" class="form-label">商品描述:</label>
+      <textarea name="description" placeholder="请输入商品描述" class="form-textarea"/>
+    </view>
+    <view class="form-item">
+      <label for="category" class="form-label">商品类别:</label>
+      <picker name="category" 
+      mode="selector" range="{{categories}}" bindchange="pickerChange">
+        <view class="picker">{{currentCategory}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <label for="condition" class="form-label">商品状况:</label>
+      <picker name="condition" mode="selector" range="{{conditions}}" bindchange="pickerChange">
+        <view class="picker">{{currentCondition}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <label for="price" class="form-label">价格:</label>
+      <input name="price" type="number" placeholder="请输入价格" class="form-input"/>
+    </view>
+    <view class="form-item">
+      <label for="images" class="form-label">商品图片:</label>
+      <button class="upload-btn" bindtap="chooseImage">选择图片</button>
+      <view class="img-preview" wx:for="{{images}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill"/>
+      </view>
+    </view>
+    <view class="form-item">
+      <label for="location" class="form-label">所在地:</label>
+      <input name="location" type="text" placeholder="请输入所在地" class="form-input"/>
+    </view>
+    <view class="form-item">
+      <label for="contact" class="form-label">联系方式:</label>
+      <input name="contact" type="text" placeholder="请输入联系方式" class="form-input"/>
+    </view>
+    <button formType="submit" class="submit-btn">发布商品</button>
+  </form>
 </view>
-
-<t-fab class="fabButton" icon="add" button-props="{{fabButton}}" bind:click="handleClick" text="发布二手" />
