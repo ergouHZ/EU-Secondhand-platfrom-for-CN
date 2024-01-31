@@ -3,9 +3,6 @@
   "onReachBottomDistance": 10,
   "backgroundTextStyle": "light",
   "usingComponents": {
-    "price": "/components/price/index",
-    "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-image": "/components/webp-image/index",
     "goods-card": "/components/goods-card/index"
   }
 }
