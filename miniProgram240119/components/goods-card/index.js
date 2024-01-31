@@ -125,23 +125,24 @@ Component({
         `#${this.data.independentID}`,
         (res) => {
 
-          console.log(res);
-
-          if (res.intersectionRatio > 0.2 && (res.dataset.goods.spuId % 3) === 0) {
-            // 当元素超过50%可见时执行的操作
+          /* 可见一部分时执行操作 */
+          if (res.intersectionRatio > 0.05) {
             this.intersectionObserverCB();
-            console.log('Element is more than 50% visible');
-          } else if (res.intersectionRatio > 0 && (res.dataset.goods.spuId % 3) === 0) {
+            console.log('Element is more than 20% visible');
+
+          } /* else if (res.intersectionRatio > 0) {
             // 当元素部分可见时执行的操作
-            console.log('Element is now visible');
-          } else if (res.intersectionRatio < 0 && (res.dataset.goods.spuId % 3) === 0) {
-            // 当元素部分可见时执行的操作
+            console.log('Element is now visible'); */
+
+
+          /* 商品卡消失时执行此操作 */
+          else if (res.intersectionRatio <= 0) {
+            this.clearIntersectionObserverHandle();
             console.log('Element is not visible');
           };
 
           /* console.log(res.dataset.goods.spuId % 3); */
           /* console.log('createdIno') */
-
 
           //
 
@@ -157,7 +158,7 @@ Component({
         goods: this.data.goods,
         context: this.intersectionObserverContext,
       });
-      console.log('intersectionObserverCB');
+
     },
 
 
@@ -168,8 +169,12 @@ Component({
         } catch (e) { }
         this.intersectionObserverContext = null;
       }
+
     },
 
+
+
+    /* 检验加载用 */
     loadLazyImgChange() {
       console.log('e');
     }

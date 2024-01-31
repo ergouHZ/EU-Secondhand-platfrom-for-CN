@@ -1,4 +1,9 @@
-<view id="{{independentID}}" class="goods-card" bind:tap="clickHandle" data-goods="{{ goods }}">
+<view
+id="{{independentID}}"
+ class="goods-card"
+bind:tap="clickHandle"
+ data-goods="{{ goods }}"
+>
 
   <view class="goods-card__main">
     <view class="goods-card__thumb" bind:tap="clickThumbHandle">
@@ -8,7 +13,7 @@
       src="{{ goods.thumb }}"
       mode="aspectFit"
       lazy-load="true"
-      bindload="loadLazyImgChange"/>
+      />
     </view>
 
     <view class="goods-card__body">
