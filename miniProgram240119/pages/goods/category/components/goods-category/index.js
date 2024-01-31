@@ -35,6 +35,7 @@ Component({
       });
     }
   },
+
   methods: {
     onParentChange(event) {
       this.setActiveKey(event.detail.index, 0).then(() => {
@@ -44,6 +45,7 @@ Component({
         ]);
       });
     },
+
     onChildChange(event) {
       this.setActiveKey(this.data.activeKey, event.detail.index).then(() => {
         this.triggerEvent('change', [
@@ -58,6 +60,7 @@ Component({
         item,
       });
     },
+
     setActiveKey(key, subKey) {
       return new Promise((resolve) => {
         this.setData(
@@ -71,5 +74,10 @@ Component({
         );
       });
     },
+
+    subLoadCheck() {
+      console.log('subLoadCheck');
+    },
+
   },
 });

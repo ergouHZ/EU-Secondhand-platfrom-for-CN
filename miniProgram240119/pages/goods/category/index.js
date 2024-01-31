@@ -1,4 +1,5 @@
-import { getCategoryList } from '../../../services/good/fetchCategoryList';
+const db = wx.cloud.database();
+
 Page({
   data: {
     list: [],
@@ -6,30 +7,35 @@ Page({
 
   async init() {
     try {
-      const result = await getCategoryList();
+      const result = await this.getCategoryListReal();
       this.setData({
         list: result,
       });
+
+      /*       console.log(this.data.list); */
     } catch (error) {
       console.error('err:', error);
     }
   },
 
   onShow() {
-    this.getTabBar().init();
+    /*     this.getTabBar().init(); */
   },
+
   onChange() {
     wx.navigateTo({
       url: '/pages/goods/list/index',
     });
   },
   onLoad() {
-    this.init(true);
+    this.init();
   },
 
-
+  //从数据库中获取分类定义
   getCategoryListReal() {
-
+    return db.collection('category').get().then(res => {
+      return res.data[0].categories;
+    });
   }
 
 });
