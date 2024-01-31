@@ -57,10 +57,10 @@ Component({
     },
     changCategory(event) {
       const { item } = event.currentTarget.dataset;
-      this.triggerEvent('changeCategory', {
-        item,
-
-      });
+      /*       this.triggerEvent('changeCategory', {
+              item,
+      
+            }); */
 
       wx.navigateTo({
         url: '/pages/goods/list/index?groupId=' + JSON.stringify(item.groupId)

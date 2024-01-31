@@ -47,6 +47,7 @@ Page({
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
+      groupId: 0
     };
 
 
@@ -76,6 +77,7 @@ Page({
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
+    console.log(params);
     if (loadMoreStatus !== 0) return;
     this.setData({
       loadMoreStatus: 1,
@@ -131,9 +133,8 @@ Page({
   },
 
   onLoad(options) {
-
-    const groupId = options.groupId;
-    console.log(groupId);
+    const cateKey = options.groupId;
+    /* console.log(groupId); */
     this.init(true);
   },
 
