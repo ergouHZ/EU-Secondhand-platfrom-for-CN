@@ -16,10 +16,6 @@ Page({
     interval: 5000,
     navigation: { type: 'dots' },
     swiperImageProps: { mode: 'scaleToFill' },
-    fabButton: {
-      icon: 'share',
-      openType: 'share',
-    },
   },
 
   pageNum: 1,
