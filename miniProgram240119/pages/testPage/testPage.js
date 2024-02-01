@@ -10,6 +10,11 @@ Page({
     images: [],
     options: [],
 
+
+    //价格输入提示
+    priceError: false,
+
+
     /*    类别联级栏数据 */
     /*     subTitles: ['请选择主类', '请选择次类', '请选择次类'], */
     note: '请选择类别',
@@ -18,8 +23,13 @@ Page({
       label: 'name',
       value: 'groupId',
       children: 'children',
-
     },
+
+    //从选择框提取数据
+    selector: {
+      groupId: '',
+      subCategoryId: '',
+    }
 
   },
 
@@ -28,7 +38,9 @@ Page({
 
   /* 获取所有表单值 */
   submitForm(e) {
-    const formData = e.detail.value;
+    //合并表单数据
+    const formData = { ...e.detail.value, ...this.data.selector };
+
     console.log('Form data:', formData);
 
 
@@ -43,14 +55,14 @@ Page({
 
   async init() {
     try {
-      console.log('e');
+
       await db.collection('category').doc('1fe899fa65ba9c3b000000364501012c').get().then(res => {
         this.setData({
           options: res.data.categories,
 
         })
       });
-      console.log(this.data.options);
+
     } catch (error) {
       console.error('err:', error);
     }
@@ -118,17 +130,40 @@ Page({
     this.init();
   },
 
+  //验证数字的输入并传递数据
+  onPriceInput(e) {
+    const { priceError } = this.data;
+    const isNumber = /^\d+(\.\d+)?$/.test(e.detail.value);
+    if (priceError === isNumber) {
+      this.setData({
+        priceError: !isNumber,
+      });
+    }
+  },
+
   showCascader() {
     this.setData({ visible: true });
   },
+
+  //选项提交后执行的操作，整理数据
   onChange(e) {
     const { selectedOptions } = e.detail;
 
+    const groupid = selectedOptions[0].groupId;
+    const subid = selectedOptions[2].groupId;
 
-    console.log(selectedOptions);
+    //console.log(selectedOptions);
 
     this.setData({
+
+      //选项显示到表单
       note: selectedOptions.map((item) => item.name).join('/'),
+
+      //数据传到后台表单
+      selector: {
+        groupId: groupid,
+        subCategoryId: subid,
+      }
     });
   },
 

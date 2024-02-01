@@ -8,8 +8,14 @@
 
 
     <view class="form-item">
-      <label for="description" class="form-label">商品描述:</label>
-      <textarea name="description" placeholder="请输入商品描述" class="form-textarea"/>
+      <t-textarea
+        name="description"
+        t-class="external-class"
+        placeholder="请输入商品描述"
+        maxlength="200"
+        disableDefaultPadding="{{true}}"
+        indicator
+      />
     </view>
 
 
@@ -39,9 +45,20 @@
 
     <!-- 之后改成计算器形式 -->
     <view class="form-item">
-      <label for="price" class="form-label">价格:</label>
-      <input name="price" type="number" placeholder="请输入价格" class="form-input"/>
+      <t-input
+        name="price"
+        label="价格"
+        placeholder="0.00"
+        suffix="元"
+        align="right"
+        type="number"
+        bindchange="onPriceInput"
+        tips="{{priceError ? '请输入正确的价格' : ''}}"
+        t-class-tips="tips"
+      />
     </view>
+
+    
 
 
     <view class="form-item">

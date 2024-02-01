@@ -3,13 +3,20 @@
 }
 
 .form-item {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .form-label {
   display: block;
   margin-bottom: 5px;
   color: #333;
+}
+
+/* //文本框 */
+.external-class {
+  height: 324rpx;
+  --td-textarea-background-color: #e3e3e394;
+  --td-textarea-border-color:#29292994;
 }
 
 input {
