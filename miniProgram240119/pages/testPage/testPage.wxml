@@ -55,7 +55,7 @@
     </view> -->
 
 
-    <!-- 之后改成计算器形式 -->
+
     <view class="form-item">
       <t-input
         name="price"
