@@ -77,11 +77,10 @@ Page({
 
   async init() {
     try {
-
+      // 从后台数据库获取商品列表 
       await db.collection('category').doc('1fe899fa65ba9c3b000000364501012c').get().then(res => {
         this.setData({
           options: res.data.categories,
-
         })
       });
 
