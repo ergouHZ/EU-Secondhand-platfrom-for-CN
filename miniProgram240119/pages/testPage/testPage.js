@@ -11,7 +11,7 @@ Page({
     options: [],
 
     /*    类别联级栏数据 */
-    subTitles: ['请选择主类', '请选择次类', '请选择次类'],
+    /*     subTitles: ['请选择主类', '请选择次类', '请选择次类'], */
     note: '请选择类别',
     visible: true,
     keys: {
@@ -124,10 +124,12 @@ Page({
   onChange(e) {
     const { selectedOptions } = e.detail;
 
+
+    console.log(selectedOptions);
+
     this.setData({
-      note: selectedOptions.map((item) => item.label).join('/'),
+      note: selectedOptions.map((item) => item.name).join('/'),
     });
-    console.log(this.data.note);
   },
 
 });

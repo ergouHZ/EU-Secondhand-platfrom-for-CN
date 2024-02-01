@@ -20,7 +20,6 @@
           class="demo"
           visible="{{visible}}"
           theme="tab"
-          sub-titles="{{subTitles}}"
           keys="{{keys}}"
           options="{{options}}"
           title="请选择类别"
