@@ -27,153 +27,11 @@ Page({
         '127880527393854976',
         '127880537778953984',
       ],
-      specList: [
-        {
-          specId: '10011',
-          title: '颜色',
-          specValueList: [
-            {
-              specValueId: '10012',
-              specId: null,
-              saasId: null,
-              specValue: '米色荷叶边',
-              image: null,
-            },
-          ],
-        },
-        {
-          specId: '10013',
-          title: '尺码',
-          specValueList: [
-            {
-              specValueId: '11014',
-              specId: null,
-              saasId: null,
-              specValue: 'S',
-              image: null,
-            },
-            {
-              specValueId: '10014',
-              specId: null,
-              saasId: null,
-              specValue: 'M',
-              image: null,
-            },
-            {
-              specValueId: '11013',
-              specId: null,
-              saasId: null,
-              specValue: 'L',
-              image: null,
-            },
-          ],
-        },
-      ],
-      skuList: [
-        {
-          skuId: '135676631',
-          skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-          specInfo: [
-            {
-              specId: '10011',
-              specTitle: null,
-              specValueId: '10012',
-              specValue: null,
-            },
-            {
-              specId: '10013',
-              specTitle: null,
-              specValueId: '11014',
-              specValue: null,
-            },
-          ],
-          priceInfo: [
-            { priceType: 1, price: '29800', priceTypeName: null },
-            { priceType: 2, price: '40000', priceTypeName: null },
-          ],
-          stockInfo: {
-            stockQuantity: 175,
-            safeStockQuantity: 0,
-            soldQuantity: 0,
-          },
-          weight: { value: null, unit: 'KG' },
-          volume: null,
-          profitPrice: null,
-        },
-        {
-          skuId: '135676632',
-          skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-          specInfo: [
-            {
-              specId: '10011',
-              specTitle: null,
-              specValueId: '10012',
-              specValue: null,
-            },
-            {
-              specId: '10013',
-              specTitle: null,
-              specValueId: '11013',
-              specValue: null,
-            },
-          ],
-          priceInfo: [
-            { priceType: 1, price: '29800', priceTypeName: null },
-            { priceType: 2, price: '40000', priceTypeName: null },
-          ],
-          stockInfo: {
-            stockQuantity: 158,
-            safeStockQuantity: 0,
-            soldQuantity: 0,
-          },
-          weight: { value: null, unit: 'KG' },
-          volume: null,
-          profitPrice: null,
-        },
-        {
-          skuId: '135681631',
-          skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-          specInfo: [
-            {
-              specId: '10011',
-              specTitle: null,
-              specValueId: '10012',
-              specValue: null,
-            },
-            {
-              specId: '10013',
-              specTitle: null,
-              specValueId: '10014',
-              specValue: null,
-            },
-          ],
-          priceInfo: [
-            { priceType: 1, price: '29800', priceTypeName: null },
-            { priceType: 2, price: '40000', priceTypeName: null },
-          ],
-          stockInfo: {
-            stockQuantity: 177,
-            safeStockQuantity: 0,
-            soldQuantity: 0,
-          },
-          weight: { value: null, unit: 'KG' },
-          volume: null,
-          profitPrice: null,
-        },
-      ],
-      spuTagList: [{ id: '13001', title: '限时抢购', image: null }],
-      limitInfo: [
-        {
-          text: '限购5件',
-        },
-      ],
-      desc: [
-        'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09c.png',
-        'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09d.png',
-      ],
       etitle: '',
     },  /*  WXml加载的货物数据 */
     isValidityLinePrice: false,
+
+    fileList: [],
   },
 
   /**
@@ -241,9 +99,72 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
-})
+  },
 
-  ;
+
+
+
+  handleAdd(e) {
+    const { fileList } = this.data;
+    const { files } = e.detail;
+
+    // 方法1：选择完所有图片之后，统一上传，因此选择完就直接展示
+    this.setData({
+      fileList: [...fileList, ...files], // 此时设置了 fileList 之后才会展示选择的图片
+
+    });
+
+    console.log(this.data.fileList);
+
+    // 方法2：每次选择图片都上传，展示每次上传图片的进度
+    // files.forEach(file => this.uploadFile(file))
+  },
+
+
+  onUpload(file) {
+    const { fileList } = this.data;
+
+    this.setData({
+      fileList: [...fileList, { ...file, status: 'loading' }],
+    });
+    const { length } = fileList;
+
+    const task = wx.uploadFile({
+      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: 'file',
+      formData: { user: 'test' },
+      success: () => {
+        this.setData({
+          [`fileList[${length}].status`]: 'done',
+        });
+      },
+    });
+    task.onProgressUpdate((res) => {
+      this.setData({
+        [`fileList[${length}].percent`]: res.progress,
+      });
+    });
+  },
+
+  handleRemove(e) {
+    const { index } = e.detail;
+    const { fileList } = this.data;
+
+    fileList.splice(index, 1);
+    this.setData({
+      fileList,
+    });
+  },
+
+  consoleRespond() {
+    console.log('Received');
+  },
+
+});
+
+
+
+
 
 
