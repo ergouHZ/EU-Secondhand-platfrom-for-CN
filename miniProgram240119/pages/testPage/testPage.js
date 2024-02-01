@@ -3,17 +3,12 @@ const db = wx.cloud.database();
 
 Page({
   data: {
-    categories: ['电子产品', '书籍', '家具', '服装', '运动用品'],
-    conditions: ['全新', '几乎全新', '状况良好', '状况尚可', '状况较差'],
-    currentCategory: '选择类别',
-    currentCondition: '选择状况',
     images: [],
     options: [],
 
 
     //价格输入提示
     priceError: false,
-
 
     /*    类别联级栏数据 */
     /*     subTitles: ['请选择主类', '请选择次类', '请选择次类'], */
@@ -29,7 +24,34 @@ Page({
     selector: {
       groupId: '',
       subCategoryId: '',
-    }
+    },
+
+    //图片上传插件
+    originFiles: [
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example4.png',
+        name: 'uploaded1.png',
+        type: 'image',
+      },
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example6.png',
+        name: 'uploaded2.png',
+        type: 'image',
+      },
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example5.png',
+        name: 'uploaded3.png',
+        type: 'image',
+      },
+    ],
+    gridConfig: {
+      column: 4,
+      width: 160,
+      height: 160,
+    },
+    config: {
+      count: 1,
+    },
 
   },
 
@@ -164,6 +186,33 @@ Page({
         groupId: groupid,
         subCategoryId: subid,
       }
+    });
+  },
+
+
+  //图片模块
+  handleSuccess(e) {
+    const { files } = e.detail;
+    this.setData({
+      originFiles: files,
+    });
+  },
+  handleRemove(e) {
+    const { index } = e.detail;
+    const { originFiles } = this.data;
+    originFiles.splice(index, 1);
+    this.setData({
+      originFiles,
+    });
+  },
+  handleClick(e) {
+    console.log(e.detail.file);
+  },
+
+  handleDrop(e) {
+    const { files } = e.detail;
+    this.setData({
+      originFiles: files,
     });
   },
 
