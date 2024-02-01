@@ -266,6 +266,35 @@
           ]
         }
       ]
+    },
+    {
+      "groupId": 10009,
+      "name": "租房",
+      "thumbnail": "",
+      "children": [
+        {
+          "groupId": 100009,
+          "name": "租房&转租",
+          "thumbnail": "",
+          "children": [
+            {
+              "groupId": 109001,
+              "name": "发布信息",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 109002,
+              "name": "转租",
+              "thumbnail": ""
+            },
+            {
+              "groupId": 109003,
+              "name": "求租信息",
+              "thumbnail": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
