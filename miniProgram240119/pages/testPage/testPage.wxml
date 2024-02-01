@@ -15,18 +15,20 @@
         disableDefaultPadding="{{true}}"
         indicator
       />
+    </view>
 
+
+    <view class="wrapper">
       <t-upload
-          draggable
-          disabled
-          media-type="{{['video','image']}}"
-          files="{{originFiles}}"
-          gridConfig="{{gridConfig}}"
-          bind:success="handleSuccess"
-          bind:remove="handleRemove"
-          bind:click="handleClick"
-          bind:drop="handleDrop"
-        />
+        disabled
+        media-type="{{['video','image']}}"
+        files="{{originFiles}}"
+        gridConfig="{{gridConfig}}"
+        bind:success="handleSuccess"
+        bind:remove="handleRemove"
+        bind:click="handleClick"
+        bind:sort-end="handleSortEnd"
+      />
     </view>
 
 
@@ -42,7 +44,6 @@
           title="请选择类别"
           bind:change="onChange"
         ></t-cascader>
-
     </view>
 
 
