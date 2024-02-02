@@ -27,31 +27,7 @@ Page({
     },
 
     //图片上传插件
-    originFiles: [
-      {
-        url: 'https://tdesign.gtimg.com/mobile/demos/example4.png',
-        name: 'uploaded1.png',
-        type: 'image',
-      },
-      {
-        url: 'https://tdesign.gtimg.com/mobile/demos/example6.png',
-        name: 'uploaded2.png',
-        type: 'image',
-      },
-      {
-        url: 'https://tdesign.gtimg.com/mobile/demos/example5.png',
-        name: 'uploaded3.png',
-        type: 'image',
-      },
-    ],
-    gridConfig: {
-      column: 4,
-      width: 160,
-      height: 160,
-    },
-    config: {
-      count: 1,
-    },
+    fileList: [],
 
   },
 
@@ -77,7 +53,7 @@ Page({
 
   async init() {
     try {
-      // 从后台数据库获取商品列表 
+      // 从后台数据库获取商品列表
       await db.collection('category').doc('1fe899fa65ba9c3b000000364501012c').get().then(res => {
         this.setData({
           options: res.data.categories,
@@ -190,28 +166,20 @@ Page({
 
 
   //图片模块
-  handleSuccess(e) {
-    const { files } = e.detail;
-    this.setData({
-      originFiles: files,
-    });
-  },
-  handleRemove(e) {
-    const { index } = e.detail;
-    const { originFiles } = this.data;
-    originFiles.splice(index, 1);
-    this.setData({
-      originFiles,
-    });
-  },
-  handleClick(e) {
-    console.log(e.detail.file);
-  },
-
-  handleDrop(e) {
-    const { files } = e.detail;
-    this.setData({
-      originFiles: files,
+  afterRead(event) {
+    const { file } = event.detail;
+    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    wx.uploadFile({
+      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: 'file',
+      formData: { user: 'test' },
+      success(res) {
+        // 上传完成需要更新 fileList
+        const { fileList = [] } = this.data;
+        fileList.push({ ...file, url: res.data });
+        this.setData({ fileList });
+      },
     });
   },
 

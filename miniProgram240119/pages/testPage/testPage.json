@@ -8,6 +8,6 @@
     "t-cascader": "tdesign-miniprogram/cascader/cascader",
     "t-input": "tdesign-miniprogram/input/input",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
-    "t-upload": "tdesign-miniprogram/upload/upload"
+    "van-uploader": "@vant/weapp/uploader/index"
   }
 }

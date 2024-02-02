@@ -19,15 +19,10 @@
 
 
     <view class="wrapper">
-      <t-upload
-        disabled
-        media-type="{{['video','image']}}"
-        files="{{originFiles}}"
-        gridConfig="{{gridConfig}}"
-        bind:success="handleSuccess"
-        bind:remove="handleRemove"
-        bind:click="handleClick"
-        bind:sort-end="handleSortEnd"
+      <van-uploader 
+      file-list="{{ fileList }}"
+      max-count="9" 
+      bind:after-read="afterRead" 
       />
     </view>
 
