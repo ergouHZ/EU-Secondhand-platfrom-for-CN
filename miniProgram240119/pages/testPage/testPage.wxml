@@ -72,7 +72,7 @@
         
     </view>
 
-<!--     <view class="form-item">
+    <view class="form-item">
       <label for="location" class="form-label">所在地 (测试用):</label>
       <input name="location" type="text" placeholder="请输入所在地" class="form-input"/>
     </view>
@@ -82,7 +82,7 @@
       <label for="contact" class="form-label">用户id(测试用):</label>
       <input name="contact" type="text" placeholder="请输入用户ID" class="form-input"/>
     </view>
-     -->
+    
     <button formType="submit" class="submit-btn">发布商品</button>
   </form>
 </view>
