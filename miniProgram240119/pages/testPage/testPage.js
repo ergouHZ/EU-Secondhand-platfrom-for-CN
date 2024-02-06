@@ -1,5 +1,8 @@
 const db = wx.cloud.database();
 
+//储存临时图片的路径
+const imgPath = 'img/temp/';
+
 
 Page({
   data: {
@@ -27,7 +30,12 @@ Page({
     },
 
     //图片上传插件
-    fileList: [],
+    fileList: [
+      {
+        url: 'https://636c-cloud1-2gt7rgawd6658b5d-1323986321.tcb.qcloud.la/img/temp/yu8pybha7lstempPicture367345.png',
+        status: 'uploading',
+      }
+    ],
 
   },
 
@@ -71,7 +79,6 @@ Page({
 
 
   onLoad() {
-    /* console.log('11'); */
 
     /*     const swipers = db.collection('swiperImg'); */
     const todo = db.collection('todos').doc('test111');
@@ -127,6 +134,7 @@ Page({
     this.init();
   },
 
+
   //验证数字的输入并传递数据
   onPriceInput(e) {
     const { priceError } = this.data;
@@ -167,9 +175,18 @@ Page({
 
   //图片模块
   afterRead(event) {
+
+    //设置图片变量
     const { file } = event.detail;
-    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
-    wx.uploadFile({
+
+    //执行上传方法
+    this.uploadToCloud(file);
+
+    //read之后上传至云后台
+
+
+    // 常规url方法
+    /* wx.uploadFile({
       url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: 'file',
@@ -180,25 +197,107 @@ Page({
         fileList.push({ ...file, url: res.data });
         this.setData({ fileList });
       },
-    });
+    }); */
 
-    //临时缓存方法
-    wx.cloud.getTempFileURL({
-      fileList: ['cloud://xxx.png'],
-      success: res => {
-        // fileList 是一个有如下结构的对象数组
-        // [{
-        //    fileID: 'cloud://xxx.png', // 文件 ID
-        //    tempFileURL: '', // 临时文件网络链接
-        //    maxAge: 120 * 60 * 1000, // 有效期
-        // }]
-        console.log(res.fileList)
-      },
-      fail: console.error
-    });
+
+    //尝试传到本地
+    /* wx.downloadFile({
+      url: confirmationUrl,//confirmationurl图片地址
+      success: (res) => {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: (res) => {
+            wx.showToast({
+              title: '保存成功',
+              duration: 1000
+            })
+          },
+
+
+          fail: (err) => {
+            wx.showToast({
+              title: '获取权限失败',
+              duration: 1000
+            })
+          }
+        })
+      }
+    }); */
+
+
 
   },
 
+
+  uploadToCloud(fileList) {
+    wx.cloud.init();
+
+
+    const randomStr = Math.random().toString(36).substr(2, 15);
+    //名字里加随机字符串
+    const fileName = randomStr + `tempPicture${fileList.size}.png`;
+
+    //临时存文件用的路径
+    const tempRoute = imgPath + fileName;
+
+    const cloudRoute = 'cloud://cloud1-2gt7rgawd6658b5d.636c-cloud1-2gt7rgawd6658b5d-1323986321/';
+    //获取临时url用的路径
+    const tempFilePath2 = cloudRoute + imgPath + fileName;
+
+
+    this.uploadFilePromise(tempRoute, fileList.url)
+      .then(data => {
+        this.setData({
+          //将新获得的id用于下面的获取链接
+          tempFilePath2: data.fileID,
+        });
+
+        wx.showToast({ title: '上传成功', icon: 'none' });
+
+        //获取临时链接
+        wx.cloud.getTempFileURL({
+          fileList: [`${tempFilePath2}`],
+          success: res => {
+
+            const { fileList = [] } = this.data;
+            const url = res.fileList[0].tempFileURL;
+
+            fileList.push({ ...file, url: url });
+            this.setData({ fileList }, () => {
+              console.log(this.data.fileList); // 在setData的回调中打印更新后的fileList
+            })
+
+          },
+          fail: console.error
+        });
+
+      })
+      .catch(e => {
+        wx.showToast({ title: '上传失败', icon: 'none' });
+        console.log(e);
+      });
+
+
+    //临时缓存方法
+
+
+  },
+
+
+
+  uploadFilePromise(thisRoute, chooseResult) {
+
+    return new Promise((resolve, reject) => {
+
+      wx.cloud.uploadFile({
+        cloudPath: thisRoute,
+        filePath: chooseResult,
+        success: res => resolve(res),
+        fail: err => reject(err)
+      });
+    });
+
+  },
 
 
 });
