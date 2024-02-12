@@ -21,8 +21,8 @@
     <view class="wrapper">
       <van-uploader 
       file-list="{{ fileList }}"
-      max-count="9" 
-      bind:after-read="afterRead" 
+      max-count="9"
+      bind:after-read="afterRead"
       />
     </view>
 
