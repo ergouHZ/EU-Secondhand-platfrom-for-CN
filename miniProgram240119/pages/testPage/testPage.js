@@ -228,10 +228,10 @@ Page({
   },
 
 
+
+  //之后使用真实API，放弃微信云开发，方法API需要更改
   uploadToCloud(fileList) {
     wx.cloud.init();
-
-
     const randomStr = Math.random().toString(36).substr(2, 15);
     //名字里加随机字符串
     const fileName = randomStr + `tempPicture${fileList.size}.png`;
