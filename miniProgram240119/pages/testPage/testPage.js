@@ -32,8 +32,7 @@ Page({
     //图片上传插件
     fileList: [
       {
-        url: 'https://636c-cloud1-2gt7rgawd6658b5d-1323986321.tcb.qcloud.la/img/temp/yu8pybha7lstempPicture367345.png',
-        status: 'uploading',
+
       }
     ],
 
