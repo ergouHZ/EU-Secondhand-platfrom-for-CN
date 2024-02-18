@@ -1,19 +1,7 @@
-<t-tab-bar class="custom-tab-bar" value="{{active}}"
-bindchange="onChange" theme="tag" split="{{false}}">
 
-  <t-tab-bar-item
-  class="custom-tab-item"
-  wx:for="{{list}}"
-  wx:for-item="item"
-  
-  wx:for-index="index"
-  value="{{item.value}}"
-  wx:key="index">
-
-    <view class="custom-tab-bar-wrapper {{index == 2? 'middle-item' : ''}}">
-      <t-icon class="tab-icon"  name="{{item.icon}}" size="52rpx" />
-      <view class="text">{{ item.text }}</view>
-    </view>
-
-  </t-tab-bar-item>
-</t-tab-bar>
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="search">标签</van-tabbar-item>
+  <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+</van-tabbar>
