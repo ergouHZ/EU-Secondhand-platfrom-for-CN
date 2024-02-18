@@ -35,7 +35,7 @@ Page({
 
     return new Promise((resolve, reject) => {
       wx.getFileSystemManager().readFile({
-        filePath: `${wx.env.USER_DATA_PATH}/category.json`, // json文件位置
+        filePath: `/model/category.json`, // json文件位置
         encoding: 'utf8',
         success(res) {
           const data = JSON.parse(res.data);
