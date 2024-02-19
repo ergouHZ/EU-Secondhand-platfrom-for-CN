@@ -142,6 +142,10 @@ Page({
     wx.navigateTo({ url: '/pages/goods/category/index' });
   },
 
+  navToReleasePage() {
+    wx.navigateTo({ url: '/pages/testPage/testPage' });
+  },
+
 
   navToActivityDetail({ detail }) {
     const { index: promotionID = 0 } = detail || {};

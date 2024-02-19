@@ -116,4 +116,11 @@ page {
   color: #333333;
 }
 
+.fabbutton-wrapper{
+  position: fixed; /* 使用固定定位 */
+  right: 20rpx;    /* 距离右边界20rpx */
+  bottom: 170rpx;   /* 距离底部边界20rpx */
+  z-index: 999;    /* z-index确保组件浮于其他元素之上 */
+}
+
 
