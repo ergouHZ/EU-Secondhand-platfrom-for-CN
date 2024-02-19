@@ -2,8 +2,10 @@
   "navigationBarTitleText": "租房",
   "onReachBottomDistance": 10,
   "backgroundTextStyle": "light",
+  "navigationStyle": "custom",
   "usingComponents": {
     "goods-card": "/components/goods-card/index",
-    "t-upload": "tdesign-miniprogram/upload/upload"
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "l-capsule-bar": "/miniprogram_npm/lin-ui/capsule-bar/index"
   }
 }
