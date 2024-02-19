@@ -3,6 +3,7 @@ Page({
   data: {
     independentID: '46451315',
 
+    imageURL: 'https://i.pinimg.com/736x/40/ec/bf/40ecbff9d8c0f343036bed0169f3ea88.jpg',
     goodsExample: {
       saasId: '88888888',
       storeId: '1000',
