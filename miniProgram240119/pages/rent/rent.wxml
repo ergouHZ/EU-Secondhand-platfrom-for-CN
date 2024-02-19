@@ -1,32 +1,3 @@
 <h2>hello</h2>
 
-<!-- <view class="goods-list-wrap wr-class" id="{{independentID}}"> -->
-<view>
-		<goods-card
-		  id="{{independentID}}-gd-{{index}}"
-		  data="{{goodsExample}}"
-		  currency="{{goodsExample.minSalePrice || '¥'}}"
-		  thresholds="{{thresholds}}"
-		  class="goods-card-inside"
-		  data-index="{{index}}"
-		  bind:thumb="onClickGoodsThumb"
-		  bind:click="onClickGoods"
-		  bind:add-cart="onAddCart">
 
-    </goods-card>
-		
-
-</view>
-
-
-
-  <t-upload
-    disabled
-    mediaType="{{['video','image']}}"
-    max="{{1}}"
-    files="{{fileList}}"
-    bind:add="handleAdd"
-    bind:remove="handleRemove"
-		bindtap="consoleRespond"
-  >
-  </t-upload>

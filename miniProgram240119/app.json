@@ -27,12 +27,12 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/testPage/testPage",
+        "pagePath": "pages/rent/rent",
         "text": "租房"
       },
       {
         "pagePath": "pages/cart/index",
-        "text": "购物车"
+        "text": "消息"
       },
       {
         "pagePath": "pages/usercenter/index",
