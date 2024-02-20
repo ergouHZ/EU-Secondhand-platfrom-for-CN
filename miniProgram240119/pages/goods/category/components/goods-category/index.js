@@ -35,6 +35,7 @@ Component({
       });
     }
   },
+
   methods: {
     onParentChange(event) {
       this.setActiveKey(event.detail.index, 0).then(() => {
@@ -44,20 +45,30 @@ Component({
         ]);
       });
     },
+
     onChildChange(event) {
       this.setActiveKey(this.data.activeKey, event.detail.index).then(() => {
         this.triggerEvent('change', [
           this.data.activeKey,
           this.data.subActiveKey,
+
         ]);
       });
     },
     changCategory(event) {
       const { item } = event.currentTarget.dataset;
-      this.triggerEvent('changeCategory', {
-        item,
+      /*       this.triggerEvent('changeCategory', {
+              item,
+      
+            }); */
+
+      wx.navigateTo({
+        url: '/pages/goods/list/index?groupId=' + JSON.stringify(item.groupId)
       });
     },
+
+
+
     setActiveKey(key, subKey) {
       return new Promise((resolve) => {
         this.setData(
@@ -71,5 +82,10 @@ Component({
         );
       });
     },
+
+    subLoadCheck() {
+      console.log('subLoadCheck');
+    },
+
   },
 });

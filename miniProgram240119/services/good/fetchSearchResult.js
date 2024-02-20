@@ -15,6 +15,9 @@ function mockSearchResult(params) {
       item.title = item.title;
       item.price = item.minSalePrice;
       item.originPrice = item.maxLinePrice;
+/*       这一栏改成距离 */
+
+/*       这个tag这一栏之后改成地址 */
       if (item.spuTagList) {
         item.tags = item.spuTagList.map((tag) => ({ title: tag.title }));
       } else {

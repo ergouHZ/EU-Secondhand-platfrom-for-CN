@@ -1,5 +1,5 @@
-import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import Toast from 'tdesign-miniprogram/toast/index';
+import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 
 const menuData = [
   [
@@ -98,6 +98,9 @@ Page({
   onLoad() {
     this.getVersionInfo();
   },
+
+
+
 
   onShow() {
     this.getTabBar().init();
@@ -223,10 +226,46 @@ Page({
 
   gotoUserEditPage() {
     const { currAuthStep } = this.data;
+
+    //如果用户资料为空则获得许可
     if (currAuthStep === 2) {
-      wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+
+      // 调用 getUserProfile 获取用户信息
+      wx.getUserProfile({
+        desc: '仅用于完善用户资料', // 声明获取用户个人信息后的用途
+        success: (res) => {
+
+          this.setData({
+            currAuthStep: currAuthStep + 1, //用户状态移至下一步
+            userInfo: res.userInfo
+          });
+        },
+        fail: (err) => {
+          console.error('用户拒绝授权', err);
+        }
+      });
+
+
+      //资料上传云空间
+      console.log(this.data.userInfo, openId);
+
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {
+          userInfo: this.data.userInfo
+        }
+
+      })
+
+
     } else {
-      this.fetUseriInfoHandle();
+
+
+      if (currAuthStep === 3) {
+        wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+      } else {
+        this.fetUseriInfoHandle();
+      }
     }
   },
 

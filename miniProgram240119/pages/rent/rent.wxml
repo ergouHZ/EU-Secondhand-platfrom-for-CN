@@ -1,0 +1,11 @@
+<l-capsule-bar home-page="/pages/home/home" title="林间有风">
+	<view>页面内容</view>
+
+	<van-card
+  num="2"
+  price="2.00"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>
+</l-capsule-bar>

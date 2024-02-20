@@ -1,5 +1,88 @@
-<view >
-    hello
-</view>
+<view class="container">
+  <form bindsubmit="submitForm">
 
-<t-fab class="fabButton" icon="add" button-props="{{fabButton}}" bind:click="handleClick" text="发布二手" />
+    <view class="form-item">
+      <t-input name="title" label="商品名称" placeholder="请输入标题" maxlength="{{22}}" ></t-input>
+    </view>
+
+
+    <view class="form-item">
+      <t-textarea
+        name="description"
+        t-class="external-class"
+        placeholder="请输入商品描述"
+        maxlength="200"
+        disableDefaultPadding="{{true}}"
+        indicator
+      />
+    </view>
+
+
+    <view class="wrapper">
+      <van-uploader 
+      file-list="{{ fileList }}"
+      max-count="9"
+      bind:after-read="afterRead"
+      />
+    </view>
+
+
+
+    <view class="form-item">
+        <t-cell title="商品类别" note="{{note}}" bind:click="showCascader" arrow></t-cell>
+        <t-cascader
+          class="demo"
+          visible="{{visible}}"
+          theme="tab"
+          keys="{{keys}}"
+          options="{{options}}"
+          title="请选择类别"
+          bind:change="onChange"
+        ></t-cascader>
+    </view>
+
+
+<!--     <view class="form-item">
+      <label for="condition" class="form-label">商品状况:</label>
+      <picker name="condition" mode="selector" range="{{conditions}}" bindchange="pickerChange">
+        <view class="picker">{{currentCondition}}</view>
+      </picker>
+    </view> -->
+
+
+
+    <view class="form-item">
+      <t-input
+        name="price"
+        label="价格"
+        placeholder="0.00"
+        suffix="元"
+        align="right"
+        type="digit"
+        bindchange="onPriceInput"
+        tips="{{priceError ? '请输入正确的价格' : ''}}"
+        t-class-tips="tips"
+      />
+    </view>
+
+    
+
+
+    <view class="form-item">
+        
+    </view>
+
+    <view class="form-item">
+      <label for="location" class="form-label">所在地 (测试用):</label>
+      <input name="location" type="text" placeholder="请输入所在地" class="form-input"/>
+    </view>
+
+
+    <view class="form-item">
+      <label for="contact" class="form-label">用户id(测试用):</label>
+      <input name="contact" type="text" placeholder="请输入用户ID" class="form-input"/>
+    </view>
+    
+    <button formType="submit" class="submit-btn">发布商品</button>
+  </form>
+</view>

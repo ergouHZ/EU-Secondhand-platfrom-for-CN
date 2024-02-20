@@ -106,10 +106,21 @@ page {
   --td-tab-track-color: red;
 }
 
+/* 导航栏在component文件夹里 */
 
-/*.fabButton {
-  position: fixed;
-  right: 20rpx; 
-  bottom: 140rpx;
-  z-index: 999; 
+
+/* 分类图标的字体大小 */
+.sortText{
+  font-size: x-small;
+  margin-left: 8rpx;
+  color: #333333;
 }
+
+.fabbutton-wrapper{
+  position: fixed; /* 使用固定定位 */
+  right: 20rpx;    /* 距离右边界20rpx */
+  bottom: 170rpx;   /* 距离底部边界20rpx */
+  z-index: 999;    /* z-index确保组件浮于其他元素之上 */
+}
+
+

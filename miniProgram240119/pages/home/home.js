@@ -2,6 +2,7 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
 import { fetchHome } from '../../services/home/home';
 
+
 Page({
   data: {
     imgSrcs: [],
@@ -15,11 +16,9 @@ Page({
     interval: 5000,
     navigation: { type: 'dots' },
     swiperImageProps: { mode: 'scaleToFill' },
-    fabButton: {
-      icon: 'share',
-      openType: 'share',
-    },
   },
+
+  pageNum: 1,
 
   goodListPagination: {
     index: 0,
@@ -34,7 +33,6 @@ Page({
   onShow() {
     this.getTabBar().init();
   },
-
 
   onLoad() {
     this.init();
@@ -54,6 +52,7 @@ Page({
     this.loadHomePage();
   },
 
+
   loadHomePage() {
     wx.stopPullDownRefresh();
 
@@ -71,6 +70,10 @@ Page({
     });
   },
 
+
+
+
+
   tabChangeHandle(e) {
     this.privateData.tabIndex = e.detail;
     this.loadGoodsList(true);
@@ -81,12 +84,8 @@ Page({
   },
 
 
-  /*  悬浮钮 */
-  handleClick(e) {
-    console.log(e);
-    /* wx.navigateTo({ url: '/pages/goods/search/index' }); */
-  },
 
+  //获取商品清单
   async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
@@ -109,10 +108,13 @@ Page({
         goodsListLoadStatus: 0,
       });
 
+      //0代表导入成功
+
       this.goodListPagination.index = pageIndex;
       this.goodListPagination.num = pageSize;
     } catch (err) {
       this.setData({ goodsListLoadStatus: 3 });
+      console.log("载入数据失败")
     }
   },
 
@@ -136,10 +138,22 @@ Page({
     wx.navigateTo({ url: '/pages/goods/search/index' });
   },
 
+  navToCategoryPage() {
+    wx.navigateTo({ url: '/pages/goods/category/index' });
+  },
+
+  navToReleasePage() {
+    wx.navigateTo({ url: '/pages/testPage/testPage' });
+  },
+
+
   navToActivityDetail({ detail }) {
     const { index: promotionID = 0 } = detail || {};
+
+    console.log(promotionID)
     wx.navigateTo({
       url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
     });
   },
 });
+

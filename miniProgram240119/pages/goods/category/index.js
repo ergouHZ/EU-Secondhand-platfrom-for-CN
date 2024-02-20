@@ -1,11 +1,13 @@
-import { getCategoryList } from '../../../services/good/fetchCategoryList';
+const db = wx.cloud.database();
+
 Page({
   data: {
     list: [],
   },
+
   async init() {
     try {
-      const result = await getCategoryList();
+      const result = await this.getCategoryListReal();
       this.setData({
         list: result,
       });
@@ -15,14 +17,33 @@ Page({
   },
 
   onShow() {
-    this.getTabBar().init();
+    /*     this.getTabBar().init(); */
   },
-  onChange() {
-    wx.navigateTo({
-      url: '/pages/goods/list/index',
-    });
-  },
+
+
   onLoad() {
-    this.init(true);
+    this.init();
   },
+
+
+  //从数据库中获取分类定义
+  getCategoryListReal() {
+
+    return new Promise((resolve, reject) => {
+      wx.getFileSystemManager().readFile({
+        filePath: `/model/category.json`, // json文件位置
+        encoding: 'utf8',
+        success(res) {
+          const data = JSON.parse(res.data);
+          resolve(data.categories);
+        },
+        fail(err) {
+          reject(err);
+        }
+      });
+    });
+  }
+
 });
+
+

@@ -1,5 +1,5 @@
-import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
 import Toast from 'tdesign-miniprogram/toast/index';
+import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
 
 const initFilters = {
   overall: 1,
@@ -47,8 +47,11 @@ Page({
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
+      groupId: 0
     };
 
+
+    /*     设置排序种类 */
     if (sorts) {
       params.sort = 1;
       params.sortType = sorts === 'desc' ? 1 : 0;
@@ -69,9 +72,12 @@ Page({
     };
   },
 
+  /*   请求参数为params */
+
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
+    console.log(params);
     if (loadMoreStatus !== 0) return;
     this.setData({
       loadMoreStatus: 1,
@@ -81,6 +87,7 @@ Page({
       const result = await fetchGoodsList(params);
       const code = 'Success';
       const data = result;
+      //若商品为空
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
@@ -97,6 +104,7 @@ Page({
           return;
         }
 
+        //获取商品列表
         const _goodsList = reset ? spuList : goodsList.concat(spuList);
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
         this.pageNum = params.pageNum || 1;
@@ -124,7 +132,9 @@ Page({
     });
   },
 
-  onLoad() {
+  onLoad(options) {
+    const cateKey = options.groupId;
+    /* console.log(groupId); */
     this.init(true);
   },
 
@@ -164,6 +174,8 @@ Page({
     });
   },
 
+
+  //显示过滤器
   showFilterPopup() {
     this.setData({
       show: true,
@@ -190,6 +202,7 @@ Page({
     this.setData({ minVal: '', maxVal: '' });
   },
 
+  /*   过滤器确认 */
   confirm() {
     const { minVal, maxVal } = this.data;
     let message = '';

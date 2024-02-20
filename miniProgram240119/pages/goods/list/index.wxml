@@ -12,7 +12,7 @@
 		  show="{{show}}"
 		  bind:showFilterPopupClose="showFilterPopupClose"
 		  bind:reset="reset"
-		  bind:confirm="<!--  -->confirm"
+		  bind:confirm="confirm"
 		>
 			<view class="price-container" slot="filterSlot">
 				<view class="price-between">价格区间</view>
@@ -41,6 +41,7 @@
 	<view class="empty-wrap" wx:if="{{goodsList.length === 0 && hasLoaded}}">
 		<t-empty t-class="empty-tips" size="240rpx" description="暂无相关商品" />
 	</view>
+	
 	<view class="category-goods-list" wx:if="{{goodsList.length}}">
 		<goods-list
 		  wr-class="wr-goods-list"

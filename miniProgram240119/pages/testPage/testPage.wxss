@@ -1,0 +1,76 @@
+.container {
+  padding: 10px;
+}
+
+.form-item {
+/*   margin-bottom: 8px; */
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* //文本框 */
+.external-class {
+  height: 324rpx;
+  --td-textarea-background-color: #e3e3e394;
+  --td-textarea-border-color:#29292994;
+}
+
+input {
+  height: 60rpx;
+}
+
+.form-input,
+.form-textarea,
+.picker {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  height: 100px;
+}
+
+.picker {
+  display: block;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.upload-btn {
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.img-preview {
+  display: flex;
+  margin-top: 5px;
+}
+
+.img-preview image {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color:rgb(100, 211, 69);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}

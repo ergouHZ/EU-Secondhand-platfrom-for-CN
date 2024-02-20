@@ -1,4 +1,9 @@
-<view id="{{independentID}}" class="goods-card" bind:tap="clickHandle" data-goods="{{ goods }}">
+<view
+id="{{independentID}}"
+ class="goods-card"
+bind:tap="clickHandle"
+ data-goods="{{ goods }}"
+>
 
   <view class="goods-card__main">
     <view class="goods-card__thumb" bind:tap="clickThumbHandle">
@@ -6,7 +11,9 @@
       wx:if="{{ !!goods.thumb }}"
       t-class="goods-card__img"
       src="{{ goods.thumb }}"
-      mode="aspectFill" lazy-load />
+      mode="aspectFit"
+      lazy-load="true"
+      />
     </view>
 
     <view class="goods-card__body">
@@ -16,6 +23,9 @@
           {{ goods.title }}
         </view>
 
+
+
+        <!-- tag栏,改成用户名? -->
         <view wx:if="{{ goods.tags && !!goods.tags.length }}"
         class="goods-card__tags">
           <view wx:for="{{ goods.tags }}"
@@ -27,6 +37,8 @@
           </view>
         </view>
       </view>
+
+      
       
       <view class="goods-card__down">
         <price

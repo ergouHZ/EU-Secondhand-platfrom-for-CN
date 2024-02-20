@@ -3,6 +3,11 @@
   "onReachBottomDistance": 10,
   "backgroundTextStyle": "light",
   "usingComponents": {
-    "t-fab": "tdesign-miniprogram/fab/fab"
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "van-uploader": "@vant/weapp/uploader/index"
   }
 }
