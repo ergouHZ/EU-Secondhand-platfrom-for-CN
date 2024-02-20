@@ -16,6 +16,25 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< Updated upstream
+=======
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js, ts}": "eslint --cache --fix",
+    "*.{js,ts,wxml,html,json,css,less}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "dayjs": "^1.9.3",
+    "tdesign-miniprogram": "^1.2.7",
+    "tslib": "^1.11.1"
+  },
+>>>>>>> Stashed changes
   "devDependencies": {
     "miniprogram-api-typings": "^3.12.2"
   }
